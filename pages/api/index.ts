@@ -1,17 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 
-export default function handler(
+export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-
-  const book = req.book;
-  let results = [];
+  const book = req.body;
+  let results: any = [];
   await fetch(`https://www.googleapis.com/books/v1/volumes?q=${book}&key=${process.env.BOOK_API}&language=en`)
   .then(response => response.json())
   .then((data) => {
-    data.items.forEach(item => {
+    data.items.forEach((item: any) => {
       results.push(item.volumeInfo)
     });;
   })

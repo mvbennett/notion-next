@@ -10,9 +10,21 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [results, setResults] = useState([])
-  const search = () => {
-    console.log('searched');
-
+  const search = async (data: any) => {
+    const response = await fetch(
+      '/api',
+      {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+    );
+    return response.json();
   }
   return (
     <>
