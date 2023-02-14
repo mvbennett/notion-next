@@ -1,7 +1,7 @@
 import React from "react";
 
-const ResultCard = ({result}) => {
-  const convertToCSV = (obj) => {
+const ResultCard = ({result}: any) => {
+  const convertToCSV = (obj: any) => {
     let str = '';
     const header = Object.keys(obj);
     str += header.join(',') + '\r\n';

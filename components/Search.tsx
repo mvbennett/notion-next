@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 
-const Search = ({search, setResults}) => {
-  const [input, setInput] = useState();
-  const handleSubmit = async (e) => {
+const Search = ({search, setResults}: any) => {
+  const [input, setInput] = useState(String);
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setResults([]);
     const searchResults = await search(input);
-    const parsedResults = [];
-    searchResults.forEach((result) => {
+    const parsedResults: any = [];
+    searchResults.forEach((result: any) => {
       if (result.authors !== undefined && result.description !== undefined) {
         parsedResults.push(result);
       }
