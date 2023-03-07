@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Search = ({search, setResults}: any) => {
   const [input, setInput] = useState(String);
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     setResults([]);
     const searchResults = await search(input);
