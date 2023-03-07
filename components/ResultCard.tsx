@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const ResultCard = ({result}: any) => {
@@ -40,10 +41,12 @@ const ResultCard = ({result}: any) => {
     document.body.appendChild(link);
     link.click();
   }
-  console.log(convertToCSV(downloadInfo));
+
   return(
     <div className="result-card">
-      <img src={image} alt={result.title} />
+      <div className="book-cover">
+        <Image src={image} alt={result.title} fill />
+      </div>
       <h3>
         { result.title }
       </h3>
